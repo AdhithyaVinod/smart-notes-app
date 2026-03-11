@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Notebooks</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📁 My Notebooks</h1>
+
+<form action="/add_notebook" method="POST" class="form">
+
+<input type="text" name="name" placeholder="Create new notebook" required>
+
+<button>Create</button>
+
+</form>
+
+
+<div class="grid">
+
+{% for notebook in notebooks %}
+
+<a class="card" href="/notebook/{{notebook.id}}">
+
+📂 {{notebook.name}}
+
+</a>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</body>
+
+</html>
