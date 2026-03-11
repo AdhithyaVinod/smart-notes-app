@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>{{notebook.name}}</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📓 {{notebook.name}}</h1>
+
+<form action="/add_note/{{notebook.id}}" method="POST" class="form">
+
+<input type="text" name="title" placeholder="Title" required>
+
+<textarea name="content" placeholder="Write your note"></textarea>
+
+<button>Add Note</button>
+
+</form>
+
+
+<div class="grid">
+
+{% for note in notes %}
+
+<div class="note-card">
+
+<h3>{{note.title}}</h3>
+
+<p>{{note.content}}</p>
+
+<a class="delete" href="/delete_note/{{note.id}}/{{notebook.id}}">✖</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<a href="/dashboard" class="back">⬅ Back</a>
+
+</div>
+
+</body>
+
+</html>
